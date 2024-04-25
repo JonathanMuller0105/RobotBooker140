@@ -1,0 +1,11 @@
+{
+    "firstname" : "Luciana",
+    "lastname" : "Camargo",
+    "totalprice" : 60,
+    "depositpaid" : false,
+    "bookingdates" : {
+        "checkin" : "2024-04-27",
+        "checkout" : "2024-04-27"
+    },
+    "additionalneeds" : "Breakfast"
+}
