@@ -27,3 +27,4 @@ Get Booking Id
     ${booking_id}    Set Variable    ${response_body}[0][bookingid]
     Set Suite Variable    ${booking_id}
 
+
