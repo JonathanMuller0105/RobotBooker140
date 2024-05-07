@@ -1,0 +1,3 @@
+${firstname},${lastname},${totalprice},${depositpaid},${checkin},${checkout},${additionalneeds}
+fulano,ciclano,80,false,2024-04-29,2024-04-30,piscina
+beltrano,ciclano,150,false,2024-04-29,2024-04-30,tenis de mesa
