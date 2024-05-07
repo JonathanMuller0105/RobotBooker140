@@ -55,3 +55,37 @@ Update Booking
     Should Be Equal    ${response_body}[bookingdates][checkin]    ${bookingdates}[checkin]
     Should Be Equal    ${response_body}[bookingdates][checkout]    ${bookingdates}[checkout]
     Should Be Equal    ${response_body}[additionalneeds]    ${additionalneeds}
+
+
+Partial Update Booking
+    Get Booking Id    ${url}    ${firstname}    ${lastname}
+    ${headers}    Create Dictionary    Content-Type=${Content_Type}    cookie=token=${token}
+    ${body}    Create Dictionary    additionalneeds=Dinner
+
+    ${response}    PATCH    url=${url}/booking/${booking_id}    json=${body}    headers=${headers}
+
+    ${response_body}    Set Variable    ${response.json()}
+    Log To Console    ${response_body}
+
+    Status Should Be    200
+
+    Should Be Equal    ${response_body}[firstname]    ${firstname}
+    Should Be Equal    ${response_body}[lastname]    ${lastname}
+    Should Be Equal    ${response_body}[totalprice]    ${{int(90)}}
+    Should Be Equal    ${response_body}[depositpaid]    ${{bool(True)}}
+    Should Be Equal    ${response_body}[bookingdates][checkin]    ${bookingdates}[checkin]
+    Should Be Equal    ${response_body}[bookingdates][checkout]    ${bookingdates}[checkout]
+    Should Be Equal    ${response_body}[additionalneeds]    Dinner
+
+Delete Booking
+    Get Booking Id    ${url}    ${firstname}    ${lastname}
+    ${headers}    Create Dictionary    Content-Type=${Content_Type}    cookie=token=${token}
+
+    ${Resource}    DELETE    url=${url}/booking/${booking_id}    headers=${headers}
+
+    Status Should Be    201
+
+    
+
+
+
